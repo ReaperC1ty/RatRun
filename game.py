@@ -5,8 +5,8 @@ from random import randint
 
 
 pygame.init()
-
-k=3000 #use to despawn fonts and other blits(blit outside given range)
+j= (0,0)
+k= (1000,100)#use to despawn fonts and other blits(blit outside given range)
 
 funX = 0 
 funY = 0
@@ -56,6 +56,7 @@ Rspeed3 = [10,-10]
 Rspeed4 = [-10,10]
 Rspeed5 = [10,10]
 run = True
+start = False
 
 width = 1270
 height = 900
@@ -64,6 +65,8 @@ pygame.display.set_caption('RatRun')
 clock = pygame.time.Clock()
 SCREEN_UPDATE = pygame.USEREVENT
 test_font = pygame.font.Font('Font/Pixely.ttf', 50)
+
+menu_screen= pygame.image.load('Rgraphics/Menu.jpg').convert()
 
 background_surface = pygame.image.load('Rgraphics/Background Z.png').convert()
 logo_surface = pygame.image.load('Rgraphics/RatRunTruLogogame.png').convert_alpha()
@@ -139,6 +142,8 @@ while run:
                 funX = -11
             if event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                 funX = 9
+            if event.key == pygame.K_SPACE:
+                start = True 
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_w or event.key == pygame.K_UP:
                 funY = 0
@@ -148,6 +153,9 @@ while run:
                 funX = 0
             if event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                 funX = 0
+
+    if start == True: 
+        j = (2000,2000)
      
     runner_rect.x += funX
     if runner_rect.x > width-35 or runner_rect.x < 0:
@@ -163,9 +171,11 @@ while run:
      #   runner_rect.x = 0
       #  runner_rect.y = 0
 
+    
     screen.blit(background_surface,(0,0))
     screen.blit(logo_surface,(950,120))
     screen.blit(runner_surface,runner_rect)
+    
     #screen.blit(text_surface,(1100,100))
    
     #if romba1_rect.left < 0:
@@ -316,7 +326,8 @@ while run:
     screen.blit(romba3_surface, romba3_rect)
     screen.blit(romba1_surface, romba1_rect)
     screen.blit(romba2_surface, romba2_rect)
-    screen.blit(text_surface,(1000,100))
+    screen.blit(text_surface,k)
     screen.blit(htext_surface,(1000,40))
+    screen.blit(menu_screen,j)
     pygame.display.update()
     clock.tick(60)
