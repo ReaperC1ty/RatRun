@@ -17,6 +17,7 @@ direction = 1
 
 speed = [0,0]
 
+menu_clock =  0
 
 
 class RUNNER: 
@@ -312,9 +313,10 @@ while run:
     ticks = pygame.time.get_ticks()
     
     buffman =   ticks/1000 - jimmithy
-    if highscore < buffman:
-        highscore = buffman
-    
+    if start == True: 
+        if highscore < buffman:
+            highscore = buffman
+        
     text_surface = test_font.render(str(round(buffman, 2)), False, 'Tan')
     htext_surface = test_font.render(str(round(highscore, 2)), False, 'Lime')
     
@@ -326,8 +328,9 @@ while run:
     screen.blit(romba3_surface, romba3_rect)
     screen.blit(romba1_surface, romba1_rect)
     screen.blit(romba2_surface, romba2_rect)
+    screen.blit(menu_screen,j)
     screen.blit(text_surface,k)
     screen.blit(htext_surface,(1000,40))
-    screen.blit(menu_screen,j)
+    #screen.blit(menu_screen,j)
     pygame.display.update()
     clock.tick(60)
