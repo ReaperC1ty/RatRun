@@ -63,12 +63,12 @@ screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption('RatRun')
 clock = pygame.time.Clock()
 SCREEN_UPDATE = pygame.USEREVENT
-test_font = pygame.font.Font('RatRun/Font/Pixely.ttf', 50)
+test_font = pygame.font.Font('Font/Pixely.ttf', 50)
 
-background_surface = pygame.image.load('RatRun/Rgraphics/Background Z.png').convert()
-logo_surface = pygame.image.load('RatRun/Rgraphics/RatRunTruLogogame.png').convert_alpha()
+background_surface = pygame.image.load('Rgraphics/Background Z.png').convert()
+logo_surface = pygame.image.load('Rgraphics/RatRunTruLogogame.png').convert_alpha()
 
-runner_surface = pygame.image.load('RatRun/Rgraphics/RatRunnerx.png').convert_alpha()
+runner_surface = pygame.image.load('Rgraphics/RatRunnerx.png').convert_alpha()
 runner_rect =  runner_surface.get_rect(center = (200,400))
 
 #text_surface = test_font.render('0', False, 'Tan')
@@ -94,25 +94,25 @@ q3 = random.randint(100, 628)
 w3 = random.randint(100, 746)
 
 
-rombap_surface = pygame.image.load('RatRun/Rgraphics/RombaP.png').convert_alpha()
+rombap_surface = pygame.image.load('Rgraphics/RombaP.png').convert_alpha()
 rombap_rect = rombap_surface.get_rect(topright = (q3, w3))
 
-romba5_surface = pygame.image.load('RatRun/Rgraphics/Romba5.png').convert_alpha()
+romba5_surface = pygame.image.load('Rgraphics/Romba5.png').convert_alpha()
 romba5_rect = romba5_surface.get_rect(topright = (q2, w2))
 
-romba4_surface = pygame.image.load('RatRun/Rgraphics/Romba4.png').convert_alpha()
+romba4_surface = pygame.image.load('Rgraphics/Romba4.png').convert_alpha()
 romba4_rect = romba4_surface.get_rect(topright = (q1, w1))
 
 
-romba3_surface = pygame.image.load('RatRun/Rgraphics/Romba3.png').convert_alpha()
+romba3_surface = pygame.image.load('Rgraphics/Romba3.png').convert_alpha()
 romba3_rect = romba3_surface.get_rect(topright = (q, w))
 
 
-romba2_surface = pygame.image.load('RatRun/Rgraphics/Romba2.png').convert_alpha()
+romba2_surface = pygame.image.load('Rgraphics/Romba2.png').convert_alpha()
 romba2_rect = romba2_surface.get_rect(bottomleft = (xl, yl))
 
 
-romba1_surface = pygame.image.load('RatRun/Rgraphics/Romba.png').convert_alpha()
+romba1_surface = pygame.image.load('Rgraphics/Romba.png').convert_alpha()
 romba1_rect = romba1_surface.get_rect(center = (r, z))
 
 #if run = false: 
