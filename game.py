@@ -1,18 +1,21 @@
 from tokenize import String
 import pygame, random
 from sys import exit
-
+from random import randint
 
 
 pygame.init()
 
+k=3000 #use to despawn fonts and other blits(blit outside given range)
 
 funX = 0 
 funY = 0
 aclock = 0
 jimmithy = 0
 highscore = 0
+direction = 1
 
+speed = [0,0]
 
 
 
@@ -36,16 +39,24 @@ class MAIN:
 
     def draw_elements(self):
          self.runner.draw_runner()
-      
 
-   
 
+
+class Rombap: 
+    def _init_ (self):
+        self.speed = [50,-50]
+
+
+
+
+Rspeedx = [20,20]
 Rspeed = [10,10]
-Rspeed2 = [10,10]
-Rspeed3 = [10,10]
-Rspeed4 = [10,10]
+Rspeed2 = [-10,-10]
+Rspeed3 = [10,-10]
+Rspeed4 = [-10,10]
 Rspeed5 = [10,10]
-Alphaspeed = [9,9]
+run = True
+
 width = 1270
 height = 900
 screen = pygame.display.set_mode((width, height))
@@ -79,6 +90,12 @@ w1 = random.randint(100, 746)
 q2 = random.randint(100, 628)
 w2 = random.randint(100, 746)
 
+q3 = random.randint(100, 628)
+w3 = random.randint(100, 746)
+
+
+rombap_surface = pygame.image.load('RatRun/Rgraphics/RombaP.png').convert_alpha()
+rombap_rect = rombap_surface.get_rect(topright = (q3, w3))
 
 romba5_surface = pygame.image.load('RatRun/Rgraphics/Romba5.png').convert_alpha()
 romba5_rect = romba5_surface.get_rect(topright = (q2, w2))
@@ -98,10 +115,15 @@ romba2_rect = romba2_surface.get_rect(bottomleft = (xl, yl))
 romba1_surface = pygame.image.load('RatRun/Rgraphics/Romba.png').convert_alpha()
 romba1_rect = romba1_surface.get_rect(center = (r, z))
 
+#if run = false: 
+# Run menu 
+#if menu = done 
+# run = true 
+
 
 #vx, vy = -5, 5
 main_game = MAIN()
-while True: 
+while run: 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
@@ -126,8 +148,7 @@ while True:
                 funX = 0
             if event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                 funX = 0
-        #if event.type == pygame.KE:
-
+     
     runner_rect.x += funX
     if runner_rect.x > width-35 or runner_rect.x < 0:
         runner_rect.x -= funX
@@ -152,9 +173,22 @@ while True:
 
    # if romba1_rect.right > 700:
       #  Rspeed[4] = -Rspeed[4]
+    #Romba's
+   # if romba1_rect.left <= 20 or romba1_rect.right >= 580:
+   #     direction *= -1
+   #     Rspeedx = randint(0, 8) * direction
+#
+   #     if Rspeedx == 0:
+   #         Rspeedx = randint(2, 8) * direction
 
+    if romba1_rect.top <= 20 or romba1_rect.bottom >= 580:
+        direction *= -1
+        Rspeedx = randint(0, 8) * direction
 
-        #Romba1
+        if Rspeedx == 0: 
+            Rspeedx = randint(2, 8) * direction
+
+    
     if romba1_rect.left < 0:
         Rspeed[0] = -Rspeed[0]
     if romba1_rect.right > width:
@@ -200,6 +234,15 @@ while True:
     if romba5_rect.bottom > height:
         Rspeed5[1] = -Rspeed5[1]
 
+    if rombap_rect.left < 0:
+        Rspeed5[0] = -Rspeed5[0]
+    if rombap_rect.right > width:
+        Rspeed5[0] = -Rspeed5[0]
+    if rombap_rect.top < 0: 
+        Rspeed5[1] = -Rspeed5[1]
+    if rombap_rect.bottom > height:
+        Rspeed5[1] = -Rspeed5[1]
+
     if abs(romba5_rect.left - (runner_rect.x+5)) < 50 and abs((runner_rect.y+5) - romba5_rect.top) < 50:
         runner_rect.x = 25
         runner_rect.y = 25
@@ -227,6 +270,10 @@ while True:
 
   
     aclock = pygame.time.get_ticks()
+   # romba1_rect.left += Rspeedx[0]
+  #  romba1_rect.top += Rspeedx[1]   
+
+
     romba1_rect.left += Rspeed[0]
     romba1_rect.top += Rspeed[1]    
 
