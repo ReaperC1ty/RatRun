@@ -14,6 +14,8 @@ aclock = 0
 jimmithy = 0
 highscore = 0
 direction = 1
+qalse = False
+timeofstart = 0
 
 speed = [0,0]
 
@@ -344,11 +346,11 @@ while run:
 
    
     #main_game.draw_elements()
-    #screen.blit(romba5_surface, romba5_rect)
-    #screen.blit(romba4_surface, romba4_rect)
-    #screen.blit(romba3_surface, romba3_rect)
-    #screen.blit(romba1_surface, romba1_rect)
-    #screen.blit(romba2_surface, romba2_rect)
+    screen.blit(romba5_surface, romba5_rect)
+    screen.blit(romba4_surface, romba4_rect)
+    screen.blit(romba3_surface, romba3_rect)
+    screen.blit(romba1_surface, romba1_rect)
+    screen.blit(romba2_surface, romba2_rect)
     screen.blit(neko_surface, neko_rect)
     screen.blit(menu_screen,j)
     screen.blit(text_surface,k)
