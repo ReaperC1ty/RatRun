@@ -119,6 +119,9 @@ romba2_rect = romba2_surface.get_rect(bottomleft = (xl, yl))
 romba1_surface = pygame.image.load('Rgraphics/Romba.png').convert_alpha()
 romba1_rect = romba1_surface.get_rect(center = (r, z))
 
+neko_surface = pygame.image.load('Rgraphics/Neko.png').convert_alpha()
+neko_rect = neko_surface.get_rect(center = (r, z))
+
 #if run = false: 
 # Run menu 
 #if menu = done 
@@ -331,6 +334,7 @@ while run:
     screen.blit(menu_screen,j)
     screen.blit(text_surface,k)
     screen.blit(htext_surface,(1000,40))
+    screen.blit(neko_surface, neko_rect)
     #screen.blit(menu_screen,j)
     pygame.display.update()
     clock.tick(60)
