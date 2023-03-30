@@ -67,7 +67,7 @@ clock = pygame.time.Clock()
 SCREEN_UPDATE = pygame.USEREVENT
 test_font = pygame.font.Font('Font/Pixely.ttf', 50)
 
-menu_screen= pygame.image.load('Rgraphics/Menu.jpg').convert()
+menu_screen= pygame.image.load('Rgraphics/Space_to_start.png').convert()
 
 background_surface = pygame.image.load('Rgraphics/Background Z.png').convert()
 logo_surface = pygame.image.load('Rgraphics/RatRunTruLogogame.png').convert_alpha()
