@@ -56,6 +56,7 @@ Rspeed2 = [-10,-10]
 Rspeed3 = [10,-10]
 Rspeed4 = [-10,10]
 Rspeed5 = [10,10]
+NekoSpeed = [-5,-5]
 run = True
 start = False
 
@@ -257,6 +258,20 @@ while run:
     if rombap_rect.bottom > height:
         Rspeed5[1] = -Rspeed5[1]
 
+    if neko_rect.left < 0:
+        NekoSpeed[0] = -NekoSpeed[0]
+    if neko_rect.right > width:
+        NekoSpeed[0] = -NekoSpeed[0]
+    if neko_rect.top < 0: 
+        NekoSpeed[1] = -NekoSpeed[1]
+    if neko_rect.bottom > height:
+        NekoSpeed[1] = -NekoSpeed[1]
+
+
+    if abs(neko_rect.left - (runner_rect.x+5)) < 50 and abs((runner_rect.y+5) - neko_rect.top) < 50:
+        runner_rect.x = 25
+        runner_rect.y = 25
+        jimmithy = pygame.time.get_ticks()/1000
     if abs(romba5_rect.left - (runner_rect.x+5)) < 50 and abs((runner_rect.y+5) - romba5_rect.top) < 50:
         runner_rect.x = 25
         runner_rect.y = 25
@@ -303,6 +318,9 @@ while run:
     romba5_rect.left += Rspeed5[0]
     romba5_rect.top += Rspeed5[1] 
 
+    neko_rect.left += NekoSpeed[0]
+    neko_rect.top += NekoSpeed[1] 
+
    #RatRunner 
 
     keys = pygame.key.get_pressed()
@@ -326,15 +344,16 @@ while run:
 
    
     #main_game.draw_elements()
-    screen.blit(romba5_surface, romba5_rect)
-    screen.blit(romba4_surface, romba4_rect)
-    screen.blit(romba3_surface, romba3_rect)
-    screen.blit(romba1_surface, romba1_rect)
-    screen.blit(romba2_surface, romba2_rect)
+    #screen.blit(romba5_surface, romba5_rect)
+    #screen.blit(romba4_surface, romba4_rect)
+    #screen.blit(romba3_surface, romba3_rect)
+    #screen.blit(romba1_surface, romba1_rect)
+    #screen.blit(romba2_surface, romba2_rect)
+    screen.blit(neko_surface, neko_rect)
     screen.blit(menu_screen,j)
     screen.blit(text_surface,k)
     screen.blit(htext_surface,(1000,40))
-    screen.blit(neko_surface, neko_rect)
+   
     #screen.blit(menu_screen,j)
     pygame.display.update()
     clock.tick(60)
