@@ -16,7 +16,9 @@ highscore = 0
 direction = 1
 qalse = False
 timeofstart = 0
+#simple fix
 botsquad = 0
+#^
 
 speed = [0,0]
 
@@ -152,6 +154,7 @@ while run:
                 funX = 9
             if event.key == pygame.K_SPACE:
                 start = True 
+                timeofstart =pygame.time.get_ticks()
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_w or event.key == pygame.K_UP:
                 funY = 0
@@ -354,7 +357,9 @@ while run:
     screen.blit(romba2_surface, romba2_rect)
     screen.blit(neko_surface, neko_rect)
     screen.blit(menu_screen,j)
+    #THE MAIN CLOCK
     screen.blit(text_surface,k)
+    #THE MAIN CLOCK
     screen.blit(htext_surface,(1000,40))
    
     #screen.blit(menu_screen,j)
