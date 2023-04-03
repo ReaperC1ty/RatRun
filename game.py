@@ -16,6 +16,7 @@ highscore = 0
 direction = 1
 qalse = False
 timeofstart = 0
+botsquad = 0
 
 speed = [0,0]
 
