@@ -16,9 +16,8 @@ highscore = 0
 direction = 1
 qalse = False
 timeofstart = 0
-#simple fix
 botsquad = 0
-#^
+buffman = 0
 
 speed = [0,0]
 
@@ -154,7 +153,6 @@ while run:
                 funX = 9
             if event.key == pygame.K_SPACE:
                 start = True 
-                timeofstart =pygame.time.get_ticks()
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_w or event.key == pygame.K_UP:
                 funY = 0
@@ -277,27 +275,27 @@ while run:
     if abs(neko_rect.left - (runner_rect.x+5)) < 50 and abs((runner_rect.y+5) - neko_rect.top) < 50:
         runner_rect.x = 25
         runner_rect.y = 25
-        jimmithy = pygame.time.get_ticks()/1000
+        jimmithy = clock.get_time()
     if abs(romba5_rect.left - (runner_rect.x+5)) < 50 and abs((runner_rect.y+5) - romba5_rect.top) < 50:
         runner_rect.x = 25
         runner_rect.y = 25
-        jimmithy = pygame.time.get_ticks()/1000
+        jimmithy = clock.get_time()
     if abs(romba4_rect.left - (runner_rect.x+5)) < 50 and abs((runner_rect.y+5) - romba4_rect.top) < 50:
         runner_rect.x = 25
         runner_rect.y = 25
-        jimmithy = pygame.time.get_ticks()/1000
+        jimmithy = clock.get_time()
     if abs(romba3_rect.left - (runner_rect.x+5)) < 50 and abs((runner_rect.y+5) - romba3_rect.top) < 50:
         runner_rect.x = 25
         runner_rect.y = 25
-        jimmithy = pygame.time.get_ticks()/1000
+        jimmithy = clock.get_time()
     if abs(romba2_rect.left - (runner_rect.x+5)) < 50 and abs((runner_rect.y+5) - romba2_rect.top) < 50:
         runner_rect.x = (width/2) - 25
         runner_rect.y = (height/2) - 25
-        jimmithy = pygame.time.get_ticks()/1000
+        jimmithy = clock.get_time()
     if abs(romba1_rect.left - (runner_rect.x+5)) < 50 and abs((runner_rect.y+5) - romba1_rect.top) < 50:
         runner_rect.x = 25
         runner_rect.y = 25
-        jimmithy = pygame.time.get_ticks()/1000
+        jimmithy = clock.get_time()
 
     
   
@@ -337,9 +335,9 @@ while run:
 
 
     # Timer Display 
-    ticks = pygame.time.get_ticks()
+    ticks = clock.get_time()
     
-    buffman =   ticks/1000 - jimmithy
+    buffman += ticks/1000
     if start == True: 
         if highscore < buffman:
             highscore = buffman
@@ -357,9 +355,7 @@ while run:
     screen.blit(romba2_surface, romba2_rect)
     screen.blit(neko_surface, neko_rect)
     screen.blit(menu_screen,j)
-    #THE MAIN CLOCK
     screen.blit(text_surface,k)
-    #THE MAIN CLOCK
     screen.blit(htext_surface,(1000,40))
    
     #screen.blit(menu_screen,j)
