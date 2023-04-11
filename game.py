@@ -18,7 +18,6 @@ qalse = False
 timeofstart = 0
 botsquad = 0
 buffman = 0
-HellojeffreySMitherines = 0
 
 speed = [0,0]
 
