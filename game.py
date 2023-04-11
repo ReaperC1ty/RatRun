@@ -355,9 +355,10 @@ while run:
     screen.blit(romba1_surface, romba1_rect)
     screen.blit(romba2_surface, romba2_rect)
     screen.blit(neko_surface, neko_rect)
-    screen.blit(menu_screen,j)
     screen.blit(text_surface,k)
     screen.blit(htext_surface,(1000,40))
+    screen.blit(menu_screen,j)
+
    
     #screen.blit(menu_screen,j)
     pygame.display.update()
