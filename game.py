@@ -263,13 +263,13 @@ while run:
     if rombap_rect.bottom > height:
         Rspeed5[1] = -Rspeed5[1]
 
-    if neko_rect.left < 0:
+    if neko_rect.left < 120:
         NekoSpeed[0] = -NekoSpeed[0]
-    if neko_rect.right > width:
+    if neko_rect.right > width-120:
         NekoSpeed[0] = -NekoSpeed[0]
-    if neko_rect.top < 0: 
+    if neko_rect.top < 120: 
         NekoSpeed[1] = -NekoSpeed[1]
-    if neko_rect.bottom > height:
+    if neko_rect.bottom > height-120:
         NekoSpeed[1] = -NekoSpeed[1]
 
 
