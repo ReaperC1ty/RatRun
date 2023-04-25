@@ -145,25 +145,25 @@ while run:
             main_game.update()
         if event.type == pygame.KEYDOWN:      
             if event.key == pygame.K_w or event.key == pygame.K_UP:
-                funY = -11
+                funY += -10
             if event.key == pygame.K_s or event.key == pygame.K_DOWN:
-                funY = 9
+                funY += 10
             if event.key == pygame.K_a or event.key == pygame.K_LEFT:
-                funX = -11
+                funX += -10
             if event.key == pygame.K_d or event.key == pygame.K_RIGHT:
-                funX = 9
+                funX += 10
             if event.key == pygame.K_SPACE:
                 start = True 
                 buffman = 0
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_w or event.key == pygame.K_UP:
-                funY = 0
+                funY += 10
             if event.key == pygame.K_s or event.key == pygame.K_DOWN:
-                funY = 0
+                funY += -10
             if event.key == pygame.K_a or event.key == pygame.K_LEFT:
-                funX = 0
+                funX += 10
             if event.key == pygame.K_d or event.key == pygame.K_RIGHT:
-                funX = 0
+                funX += -10
 
     if start == True: 
         j = (2000,2000)
